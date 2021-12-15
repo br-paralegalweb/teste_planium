@@ -1,0 +1,16 @@
+{
+    "name": "ewerton/src",
+    "description": "Teste para Planium - teste ser\u0000 realizado em orienta\u0000\u0000o a objeto(PHP OO), utilizando o padr\u0000o MVC.",
+    "authors": [
+        {
+            "name": "br-paralegalweb",
+            "email": "e.arievilo@yahoo.com.br"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "App\\": "../../App"
+        }
+    }
+}

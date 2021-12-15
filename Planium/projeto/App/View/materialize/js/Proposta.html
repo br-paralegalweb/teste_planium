@@ -1,0 +1,56 @@
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js'></script>
+<script src='<?= DIR_JS ."materialize.js"?>'></script>
+<script>
+    $(document).ready(function () {
+        $("#env").attr("disabled", true);
+        $('select').formSelect();
+        planos();
+        $("#nome_proposta").blur(function () {
+            if ($(this).val() == "") {
+                $(this).css({ "border": "1px solid #F00", "padding": "2px" });
+                return;
+            } else {
+                $(this).css({ "border": '' });
+                $("#env").attr("disabled", false);
+            }
+        });
+        $("#env").click(function (e) {
+            var dados = $('#valid').serialize();
+            event.preventDefault(e);
+            $.ajax({
+                url: 'http://localhost/Planium/projeto/recebeProposta',
+                type: 'post',
+                data: dados,
+            }).done(function (dados) {
+                var d = JSON.parse(dados);
+                create(d.status);
+            }).fail(function (error) {
+                obj = JSON.parse(error.responseText)
+                $('#resp').append(obj.mensagem).css("color", "red");
+            });
+        });
+
+    });
+
+    function planos() {
+        $.ajax({
+            url: 'http://localhost/Planium/projeto/planosPlanium',
+            type: 'POST',
+        }).done(function (dados) {
+            result = JSON.parse(dados);
+            for (let i = 0; i < result.length; i++) {
+                $('#plano').append('<option value="' + result[i].nome + '">' + result[i].nome + '</option>');
+            }
+        }).fail(function (error) {
+            $('#plano').append('<option value="" readonly>Escolha seu plano </option>');
+        });
+    }
+
+
+    function create(status) {
+        if (confirm(status)) {
+            window.location.href = "<?= DIRPAGE.'/home'?>";
+        }
+    }
+</script>

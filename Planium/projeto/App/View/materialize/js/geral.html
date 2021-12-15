@@ -1,0 +1,132 @@
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js'></script>
+<script src='<?= DIR_JS ."materialize.js"?>'></script>
+<script>
+    $(document).ready(function () {
+        // $("#env").attr("disabled", true);
+        $('select').formSelect();
+        $("#nome_beneficiario").blur(function () {
+            if ($(this).val() == "") {
+                $(this).css({ "border": "1px solid #F00", "padding": "2px" });
+                return;
+            } else {
+                $(this).css({ "border": '' });
+            }
+        });
+        planos();
+        propostasFeitas();
+
+        $("#env").click(function (e) {
+            var dados = $('#valid').serialize();
+            event.preventDefault(e);
+            $.ajax({
+                url: 'http://localhost/Planium/projeto/simulador',
+                type: 'post',
+                data: dados,
+            }).done(function (dados) {
+                obj = JSON.parse(dados);
+
+                $('#resp').append(obj.mensagem);
+                mensagem(obj.mensagem);
+            }).fail(function (error) {
+                obj = JSON.parse(error.responseText);
+                $('#resp').append(obj.mensagem).css("color", "red");
+            });
+        });
+    });
+    function isNome(nome) {
+        var reg = /^[a-z A-z]{4,80}$/;
+        if (!reg.test(nome)) {
+            return false;
+        } else if (nome == null) {
+            return false;
+        }
+        else {
+            return nome;
+        }
+    }
+    var vidas = document.getElementById('quant_vidas');
+    var idade = document.getElementById('idade_beneficiario');
+    var nome = document.getElementById('nome_beneficiario');
+    var plano = document.getElementById('plano');
+
+    idade.addEventListener('focusout', function () {
+        var s = this.value;
+        if (s == 0 || s == '') {
+            $(this).css({ "border": "1px solid #F00", "padding": "2px" });
+            // $("#env").attr("disabled", true);
+            return;
+        } else {
+            $(this).css({ "border": '' });
+            return espera(s);
+        }
+    });
+
+    function espera(idade) {
+        vidas.addEventListener('focusout', function () {
+            var d = this.value;
+            if (d == 0 || d == '') {
+                $(this).css({ "border": "1px solid #F00", "padding": "2px" });
+                // return $("#env").attr("disabled", true);
+            } else {
+                $(this).css({ "border": '' });
+                return espera2(idade, d);
+            }
+        });
+    }
+
+    function espera2(idade, vidas) {
+        plano.addEventListener('change', function () {
+            var j = this.value;
+            var dados = {
+                'idade': idade,
+                'vidas': vidas,
+                'nome': nome.value,
+                'plano': j,
+            }
+            return enviarForm(dados);
+        });
+    }
+
+    function enviarForm(dados) {
+        // $("#env").attr("disabled", false);
+        return dados;
+    }
+
+    function planos() {
+        $.ajax({
+            url: 'http://localhost/Planium/projeto/planosPlanium',
+            type: 'POST',
+        }).done(function (dados) {
+            result = JSON.parse(dados);
+            for (let i = 0; i < result.length; i++) {
+                $('#plano').append('<option value="' + result[i].nome + '">' + result[i].nome + '</option>');
+            }
+        }).fail(function (error) {
+            $('#plano').append('<option value="" readonly>Escolha seu plano </option>');
+        });
+    }
+
+    function propostasFeitas() {
+        $.ajax({
+            url: 'http://localhost/Planium/projeto/suasPropostas',
+            type: 'POST',
+        }).done(function (dados) {
+            res = JSON.parse(dados);
+            console.log(res)
+            for (let i = 0; i < res.length; i++) {
+                $('#propostas').append('<option value="' + res[i].nome_proposta + '">' + res[i].nome_proposta + '</option>');
+            }
+        }).fail(function (error) {
+            var err = JSON.parse(error);
+            console.log(err);
+            $('#propostas').append('<option value="" readonly>Escolha suas propostas </option>');
+        });
+    }
+
+    function mensagem(status) {
+        if (confirm(status)) {
+            window.location.href = "<?= DIRPAGE.'/home'?>";
+        }
+    }
+</script>

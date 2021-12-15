@@ -1,0 +1,97 @@
+h1 {
+    font-size: 150%;
+    color: blue;
+}
+
+#abrir-empresa {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.text {
+    position: relative;
+}
+
+#t1 {
+    position: relative;
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+video {
+    position: relative;
+}
+
+iframe {
+    height: 40vw;
+    width: 100%;
+}
+
+#video-43 {
+    position: relative;
+    background-color: cornsilk;
+}
+
+.abrir-empresa-resumo {
+    text-align: justify;
+}
+
+.text-abrir-empresa {
+    text-align: justify;
+}
+
+#c3 {
+    text-align: justify;
+    font-size: 14px;
+}
+
+.comece-titulo {
+    font-size: 30px;
+}
+
+.empresa {
+    font-size: 30px;
+}
+
+#comece-abrir-empresa {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+}
+.modal{
+    border: none;
+    border-radius: .6rem;
+}
+#modalForm .input-field input{
+    margin-top: .4rem;
+    padding-left: 1rem;
+    border: none;
+    border-radius: .3rem;
+    background-color: #eceff1
+}
+#imgServAbertura{
+    margin-top: 60px;
+    width: 100%;
+}
+.abrir-empAlv{
+    margin-top: 50px;
+    width: 100%;
+}
+#alterSoc img{
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+#textAlter{
+    text-align: justify;
+}
+
+#nomeEmp input{
+    text-transform: uppercase
+}

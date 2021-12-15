@@ -1,0 +1,66 @@
+{
+    "propostas_fechadas": [
+        {
+            "beneficiarios": [
+                {
+                    "nome": "Gor\u00f3",
+                    "idade": "39",
+                    "preco": 30,
+                    "plano": "Bitix Customer Plano 2"
+                },
+                {
+                    "nome": "Brincou",
+                    "idade": "27",
+                    "preco": 30,
+                    "plano": "Bitix Customer Plano 2"
+                },
+                {
+                    "nome": "Qual bar?",
+                    "idade": "64",
+                    "preco": 40,
+                    "plano": "Bitix Customer Plano 2"
+                },
+                {
+                    "nome": "18 anos?",
+                    "idade": "57",
+                    "preco": 40,
+                    "plano": "Bitix Customer Plano 2"
+                },
+                {
+                    "nome": "Com mel?",
+                    "idade": "30",
+                    "preco": 30,
+                    "plano": "Bitix Customer Plano 2"
+                }
+            ],
+            "nome_proposta": "Borogod\u00f3",
+            "valor_total_proposta": 170,
+            "id_dataTime": 1639528357
+        },
+        {
+            "beneficiarios": [
+                {
+                    "nome": "Partiu?",
+                    "idade": "54",
+                    "preco": 14,
+                    "plano": "Bitix Customer Plano 1"
+                },
+                {
+                    "nome": "Sei n\u00e3o hein",
+                    "idade": "21",
+                    "preco": 11,
+                    "plano": "Bitix Customer Plano 1"
+                },
+                {
+                    "nome": "J\u00e1 \u00e9?",
+                    "idade": "25",
+                    "preco": 11,
+                    "plano": "Bitix Customer Plano 1"
+                }
+            ],
+            "nome_proposta": "Vamos?",
+            "valor_total_proposta": 36,
+            "id_dataTime": 1639528408
+        }
+    ]
+}

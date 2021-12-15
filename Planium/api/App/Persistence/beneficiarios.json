@@ -1,0 +1,74 @@
+{
+    "proposta": [
+        {
+            "nome_proposta": "Borogod\u00f3",
+            "plano": "Bitix Customer Plano 2",
+            "id": 1639508717,
+            "beneficiarios": [
+                {
+                    "nome": "Gor\u00f3",
+                    "idade": "39",
+                    "preco": null,
+                    "faixa": "faixa2",
+                    "ID": 1639508736
+                },
+                {
+                    "nome": "Brincou",
+                    "idade": "27",
+                    "preco": null,
+                    "faixa": "faixa2",
+                    "ID": 1639508869
+                },
+                {
+                    "nome": "Qual bar?",
+                    "idade": "64",
+                    "preco": null,
+                    "faixa": "faixa3",
+                    "ID": 1639508902
+                },
+                {
+                    "nome": "18 anos?",
+                    "idade": "57",
+                    "preco": null,
+                    "faixa": "faixa3",
+                    "ID": 1639508950
+                },
+                {
+                    "nome": "Com mel?",
+                    "idade": "30",
+                    "preco": null,
+                    "faixa": "faixa2",
+                    "ID": 1639508964
+                }
+            ]
+        },
+        {
+            "nome_proposta": "Vamos?",
+            "plano": "Bitix Customer Plano 1",
+            "id": 1639508805,
+            "beneficiarios": [
+                {
+                    "nome": "Partiu?",
+                    "idade": "54",
+                    "preco": null,
+                    "faixa": "faixa3",
+                    "ID": 1639508836
+                },
+                {
+                    "nome": "Sei n\u00e3o hein",
+                    "idade": "21",
+                    "preco": null,
+                    "faixa": "faixa2",
+                    "ID": 1639508884
+                },
+                {
+                    "nome": "J\u00e1 \u00e9?",
+                    "idade": "25",
+                    "preco": null,
+                    "faixa": "faixa2",
+                    "ID": 1639508919
+                }
+            ]
+        }
+    ]
+}
